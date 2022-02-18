@@ -1,0 +1,180 @@
+    <!-- DISPLAY TABLE -->
+    <table class="table mt-5 text-center" id="data-list">
+        <thead>
+            <tr id="profile-pg">
+                <th id="name_row">Full Name:</th>
+                <th id="addr1_row">Address 1:</th>
+                <th id="addr2_row">Address 2:</th>
+                <th id="city_row">City:</th>
+                <th id="state_row">State:</th>
+                <th id="zip_row">Zipcode:</th>
+            </tr>
+        </thead>
+        <tbody id="profile-table">
+        </tbody>
+    </table>
+    <!-- END OF DISPLAY -->
+    <button class="open-button" onclick="profileEdit()">click here to edit profile</button>
+    
+    <div class="form-popup" id="edit-profile">
+        <form action="/action_page.php" class="form-container">
+            <h1>Edit Profile</h1>
+            <label for="edited-name"><b>Full Name:</b></label>
+            <input type="text" maxlength="50" placeholder="please enter full name" id="edited-name" name="edited-name" required>
+
+            <label for="edited-address1"><b>Adrress 1:</b></label>
+            <input type="text" maxlength="100" placeholder="enter primary address here" id="edited-address1" name="edited-address1" required>
+
+            <label for="edited-address2"><b>Adrress 2:</b></label>
+            <input type="text" maxlength="100" placeholder="enter secondary address here (not required)" id="edited-address2" name="edited-address2">
+
+            <label for="edited-city"><b>City:</b></label>
+            <input type="text" maxlength="100" placeholder="type city here" id="edited-city" name="city" required>
+
+            <label for="edited-state"><b>State:</b></label>
+            <select class=" form-control modal-body" id="edited-state" name="edited-state" required>
+                <option value="Texas">TX</option>
+                <option value="Alabama">AL</option>
+                <option value="Colorado">CO</option>
+            </select><br><br>
+
+            <label for="edited-zip"><b>Zipcode:</b></label>
+            <input type="text" minlength="5" maxlength="9" placeholder="type zipcode here (must be 5-9 characters long)" id="edited-zip">
+            <!-- add submit function here later -->
+            <button type="submit" class="btn">update</button>
+            <button type="button" class="btn cancel" onclick="cancelEdit()">cancel</button>
+        </form>
+    </div>
+
+<script>
+    function profileEdit() {
+        document.getElementById("edit-profile").style.display = "block";
+    }
+
+    function cancelEdit() {
+        document.getElementById("edit-profile").style.display = "none";
+    }
+</script>
+
+<style>
+
+    #name_row {
+        color: white;
+        position: fixed;
+        left: 2%;
+    }
+
+    #addr1_row {
+        color: white;
+        position: fixed;
+        top: 8%;
+        left: 2%
+    }
+
+    #addr2_row {
+        color: white;
+        position: fixed;
+        top: 16%;
+        left: 2%;
+    }
+
+    #city_row {
+        color: white;
+        position: fixed;
+        top: 32%;
+        left: 2%;
+    }
+
+    #state_row {
+        color: white;
+        position: fixed;
+        top: 24%;
+        left: 2%;
+    }
+
+    #zip_row {
+        color: white;
+        position: fixed;
+        top: 40%;
+        left: 2%;
+    }
+
+    #edit_row {
+        color: white;
+        position: fixed;
+        top: 48%;
+        left: 2%;
+    }
+    /* This was taken from https://www.w3schools.com/howto/howto_js_popup_form.asp */
+    /* Button used to open the contact form - fixed at the bottom of the page */
+    .open-button {
+        background-color: saddlebrown;
+        color: white;
+        padding: 16px 20px;
+        border: solid;
+        border-color:orange;
+        cursor: pointer;
+        opacity: 0.85;
+        position: fixed;
+        left: 2%;
+        top: 48%;
+        width: 280px;
+        box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+    }
+
+    /* The popup form - hidden by default */
+    .form-popup {
+        color:white;
+        display: none;
+        position: fixed;
+        left: 35%;
+        top: 0%;
+        border: none;
+        z-index: 9;
+    }
+
+    /* Add styles to the form container */
+    .form-container {
+        max-width: 500px;
+        padding: 10px;
+        background-color: black;
+        box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+    }
+
+        /* Full-width input fields */
+        .form-container input[type=text], .form-container input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+
+            /* When the inputs get focus, do something */
+            .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-button:hover {
+            opacity: 1;
+        }
+</style>

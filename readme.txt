@@ -1,0 +1,1 @@
+Front end: just open index.html from local machine 

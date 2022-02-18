@@ -1,0 +1,56 @@
+header {
+    font-family: 'Franklin Gothic';
+    background-color: black;
+    color: white;
+    text-align:center;
+}
+#foot {
+    color: white;
+    text-align: center;
+    background-color:black;
+    height:60px;
+    border:solid;
+    border-color:orange;
+}
+.tab {
+    overflow: hidden;
+    font-family: 'Franklin Gothic';
+}
+.tab button {
+    color:white;
+    background-color: black;
+    float: left;
+    border-block: double;
+    border-color: orange;
+    outline: none;
+    cursor: pointer;
+    padding: 20px 30px;
+    transition: 0.3s;
+    width: 25%;
+    height: 5%;
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: orange;
+}
+/* Create an active/current tablink class */
+.tab button.active {
+    border-color: orange;
+    background-color: darkorange;    
+    border:none;
+}
+
+button.logout {
+    background-color:darkred;
+    color:white;
+    position:relative;
+    top:30%;
+    border-color:red;
+}
+button.logout:hover{
+    background-color:red;
+}
+iframe{
+    border:none;
+    background-color:darkorange;
+}
