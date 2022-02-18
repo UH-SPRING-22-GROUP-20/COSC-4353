@@ -39,7 +39,7 @@ async function validate_reg(valid) {
 }
 
 async function logout(){
-    location.href = '/project/index.html';
+    location.href = '../index.html';
 }
 // ------------------ function to validate login ends ---------------
 
