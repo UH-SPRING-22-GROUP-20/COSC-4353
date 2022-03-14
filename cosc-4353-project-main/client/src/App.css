@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+body{
+  background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background-color: gray;
+  color: white;
+}
+
+.nav-links{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+
+}

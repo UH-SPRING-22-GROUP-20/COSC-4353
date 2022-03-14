@@ -1,0 +1,6 @@
+GET http://localhost:5050/price/quote/admin
+Content-Type: application/json
+
+{
+    "gallons_req" : 1500
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+   
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?v=2">
+    <link rel = "stylesheet" type = "text/css" href = "index.css">
+  
+    <title>Log In</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div class = "login-box">
+      
+      <form id="login-form">
+        <h2>Create New Account</h2>
+        
+        <div class="form-group">
+          <label for = "user">Username: </label>
+          <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <label>Password : </label>
+          <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+        </div>
+        <div class="submit-btn">
+        <input type="submit" value="Login" id="login-form-submit"/>
+        </div>
+        <div class="submit-btn">
+          <a href="/">Have an account? Log in</a>
+        </div>
+      
+      </form>
+
+    </div>
+    <div id="root"></div>
+ 
+  </body>
+</html>
