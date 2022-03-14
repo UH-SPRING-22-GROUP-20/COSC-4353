@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+
+
     <head>
         <link rel="stylesheet" href="styles.css">
     </head>
@@ -13,17 +15,18 @@
     </div>
 
     <header>
-        <h1>Profile Management</h1><br />
+        <h1 align="center">Profile Management</h1><br />
     </header>
     <main>
+        
             <span class="required"></span><br /><br />
                 
         <form method="post" action="https://wp.zybooks.com/form-viewer.php" enctype="multipart/form-data">
 
-            <table>
+            <table align="center">
                 <tr>
                     <td>
-                        <div align="left">
+                        <div align ="left">
 
                         <label class="required" for="fullName">Full Name:</label>
                         <ul style="list-style-type:none;">
@@ -71,5 +74,11 @@
       background-attachment: fixed;
       background-size: cover;
     }
+
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+      }
     </style> 
 </html>
