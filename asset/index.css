@@ -3,11 +3,7 @@ body {
   background: linear-gradient(to right, orange, black);
   padding: 0;
   
-  /* Center and scale the image nicely 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto;
-  background: url("login-background.jpg") ; */
+  
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
   
