@@ -1,0 +1,45 @@
+h1{
+    text-align:center;
+}
+
+h3{
+    text-align:center;
+}
+form {
+    position: fixed;
+    background-color: black;
+    color: white;
+    width: 30%;
+    height: 60%;
+    left: 35%;
+    box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+body{
+    background-color: darkorange;
+}
+#gallons{
+    width:50%;
+    align-content:center;
+}
+#address{
+    width:50%;
+}
+#date{
+    width:50%;
+}
+#pricePgall{
+    width:50%;
+}
+#total{
+    width:50%;
+}
+#form1{
+    text-align:center;
+}
+
+footer{
+    text-align:center;
+}
+.label{
+    align-content:center;
+}

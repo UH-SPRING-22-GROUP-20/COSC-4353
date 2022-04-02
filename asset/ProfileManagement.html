@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<!--
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+    <div class="svg-container">
+        <svg viewbox="0 0 800 400" class="svg">
+        <path id="curve" fill="darkorange" d="M 800 300 Q 400 350 0 300 L 0 0 L 800 0 L 800 300 Z">
+        </path>
+        </svg>
+    </div>
+-->
+
+
+    <header>
+        <h1 align="center">Profile Management</h1><br />
+    </header>
+    <main>
+            <span class="required"></span><br /><br />
+        <form method="post" action="https://wp.zybooks.com/form-viewer.php" enctype="multipart/form-data">
+
+            <table align="center">
+                <tr>
+                    <td>
+                        <div align ="left">
+
+                        <label class="required" for="fullName">Full Name:</label>
+                        <ul style="list-style-type:none;">
+                        <li><input type="text" name="fullName" id="fullName" style="max-width: 600px" required /></li>
+                    </ul>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div align="left">
+                            <label class="required" for="address">Address:</label>
+                            <ul style="list-style-type:none;">
+                            <li><input  type="text" name="street" id="street" placeholder="12345 UH Street" style="width: 140px"required /></li>
+                            <li><input  type="text" name="street2" id="street2" placeholder="(Address 2)" style="width: 140px"required /></li>
+                            <li><input  type="text" name="city" id="city" placeholder="Houston" style="width: 70px" required /></li>
+                            <li><input  type="text" name="state" id="state" placeholder="Texas" style="width: 70px" required /></li>
+                            <li><input  type="number" name="zipcode" id="zipcode" placeholder="77077" style="width: 70px" required /></li>
+                    </ul>
+                    </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div>
+                            <button class="button" type="submit" >Update</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </main>
+
+
+  <footer>
+
+    <small>Copyright © 2022.</small>
+  </footer>
+</body>
+<style>
+    div { background-color: whitesmoke; }
+    body {
+      background-image: url('bg3.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+      }
+    </style> 
+</html>
