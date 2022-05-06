@@ -1,12 +1,13 @@
-import React, {useState} from 'react'
-import '../App.css'
-import {Link } from 'react-router-dom'
+import React, {useState} from 'react';
+import '../App.css';
+import {Link } from 'react-router-dom';
 
 
-const Register = ({setAuth})=> 
-{
+const Register = ({setAuth})=> {
   const [inputs, setInputs] =  useState({username: "" , password: ""});
-  const {username, password } = inputs;
+
+  const {username, password } = inputs;//, name, street, street2, city, state, zipcode} = inputs;
+  // const {username, password} = inputs;
   const onChange = e => 
     setInputs({...inputs, [e.target.name]: e.target.value});
    
@@ -32,14 +33,13 @@ const Register = ({setAuth})=>
         setAuth(true);
         alert('User has been created! Please start by creating profile');
       }
-      else
-      {
+      else{
         alert(parseRes)
       }
       
-      } 
-      catch (err) 
-      {
+
+        
+      } catch (err) {
         console.error(err)
       }
     }
@@ -73,6 +73,69 @@ const Register = ({setAuth})=>
               onChange = {e => onChange(e)}              
               ></input>
           </div>
+          {/* [tri] I want to make the customer to register when they sign up */}
+          {/* <div>
+              <label>Full name</label>
+              <input
+              type="text"
+              name="name"     
+              placeholder="name"
+              value={name}
+              onChange = {e => onChange(e)}              
+              ></input>
+          </div>
+          <div>
+              <label>street</label>
+              <input
+              type="text"
+              name="street"     
+              placeholder="street"
+              value={street}
+              onChange = {e => onChange(e)}              
+              ></input>
+          </div>
+          <div>
+              <label>street2</label>
+              <input
+              type="text"
+              name="street2"     
+              placeholder="street2"
+              value={street2}
+              onChange = {e => onChange(e)}              
+              ></input>
+          </div>
+          <div>
+              <label>city</label>
+              <input
+              type="text"
+              name="city"     
+              placeholder="city"
+              value={city}
+              onChange = {e => onChange(e)}              
+              ></input>
+          </div>
+          <div>
+              <label>state</label>
+              <input
+              type="text"
+              name="state"     
+              placeholder="state"
+              value={state}
+              onChange = {e => onChange(e)}              
+              ></input>
+          </div>
+          <div>
+              <label>zipcode</label>
+              <input
+              type="number"
+              name="zipcode"     
+              placeholder="zipcode"
+              value={zipcode}
+              onChange = {e => onChange(e)}              
+              ></input>
+          </div> */}
+
+          {/* [tri] end */}
           <div>
             <div>
             <Link to='/login'>

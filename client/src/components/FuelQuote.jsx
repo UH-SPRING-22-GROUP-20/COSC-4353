@@ -1,11 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react'
-import { useParams, useHistory } from 'react-router-dom'
-import axios from "axios"
-import '../App.css'
-import Nav from './nav'
-const FuelQuote = () => 
-{
+import React, {useContext, useEffect, useState} from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import axios from "axios";
+import '../App.css';
+import Nav from './nav';
+const FuelQuote = () => {
     let history = useHistory();
+
     const [username, setUsername] =  useState("");
     const [gallons_req, setGallons] = useState("");
     const [date, setDate] = useState("");
@@ -18,12 +18,10 @@ const FuelQuote = () =>
     const [price, setPrice] = useState("");
     const [total, setTotal] = useState("");
 
-    async function getName()
-    {
-        try 
-        {
-            const response = await fetch("http://localhost:5050/dashboard/", 
-            {
+    
+    async function getName(){
+        try {
+            const response = await fetch("http://localhost:5050/dashboard/", {
                 method: "GET",
                 headers: {token: localStorage.token}
             });
@@ -32,22 +30,18 @@ const FuelQuote = () =>
 
             setUsername(parseResponse);
             
-        } 
-        catch (error) 
-        {
+        } catch (error) {
             console.error(error.message)
             
         }
     }
-
-    async function getInfo()
-    {
-        try 
-        {
+    async function getInfo(){
+        try {
             const body = {username}
             const response = await fetch(`http://localhost:5050/clientInformation/api/profileget/${username}`, {
                 method: "GET",
                 headers:{"Content-type" : "application/json"},
+                // body: JSON.stringify(body),
                 dataType: 'jsonp'
             });
             
@@ -60,28 +54,22 @@ const FuelQuote = () =>
             setState(parseResponse.results[0].state);
             setZipcode(parseResponse.results[0].zipcode);
             
-        } 
-        catch (error) 
-        {
+        } catch (error) {
             console.error(error.message)
             
         }
     }
     
-    useEffect(()=>
-    {
+    useEffect(()=>{
         getName()
     })
-    useEffect(()=>
-    {
+    useEffect(()=>{
         getInfo()
     })
 
-    const handleSubmit = async (e) => 
-    {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        try 
-        {
+        try {
             const body = {username, gallons_req}
             const response = await fetch(`http://localhost:5050/price/quote/${username}/${gallons_req}`, {
                 method: "GET",
@@ -95,6 +83,7 @@ const FuelQuote = () =>
                 {alert("Complete your profile")
             
             ;}
+
                 setPrice(parseRes.data.price);
                 setTotal(parseRes.data.total);
                 setGallons(parseRes.data.gallons_req);
@@ -103,20 +92,16 @@ const FuelQuote = () =>
                 setStreet(parseRes.data.street);
                 setZipcode(parseRes.data.zipcode);
 
-        } 
-        catch (error) 
-        {
+        } catch (error) {
             console.error(error.message)
-        }   
+        }
+        
 }
 
-const handleSubmit1 = async (e) => 
-{
+const handleSubmit1 = async (e) => {
     e.preventDefault()
-    try 
-    {
-        const body = 
-        {
+    try {
+        const body = {
             username, 
             gallons_req, 
             state,
@@ -125,10 +110,8 @@ const handleSubmit1 = async (e) =>
             price, 
             total, 
             city, 
-            date
-        }
-        const response = await fetch(`http://localhost:5050/price/submit`, 
-        {
+            date}
+        const response = await fetch(`http://localhost:5050/price/submit`, {
             method: "POST",
             headers: {"Content-type" : "application/json"},
             body: JSON.stringify(body),
@@ -138,13 +121,13 @@ const handleSubmit1 = async (e) =>
             console.log(parseRes)
             history.push(`/dashboard`)
 
-    } 
-    catch (error) 
-    {
+    } catch (error) {
         console.error(error.message)
     }
     
 }
+
+
     return (
         <div>
         <Nav/>
@@ -157,6 +140,8 @@ const handleSubmit1 = async (e) =>
 <div></div>
 <div></div>
 <div></div>
+
+
 
 <div className="fuelquote">
 <table >
@@ -186,6 +171,60 @@ const handleSubmit1 = async (e) =>
             <div><input disabled type="text" value={street} name="street" id="street" required /></div>
             <div><input disabled type="text" value={city} name="city" id="city"  required /></div>
             <div><input disabled type="text" value={state} onChange = {(e) => setState(e.target.value)} name="state" id="state"  required /></div>
+            {/* <select name="state" id="state" >
+                <option value="" selected="selected">Select a State</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+            </select> */}
             <input disabled type="number" value={zipcode} name="zipcode" id="zipcode" placeholder="77077"required />
         </div>
 

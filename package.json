@@ -1,7 +1,4 @@
 {
-  "devDependencies": {
-    "jest": "^27.5.1"
-  },
   "dependencies": {
     "nyc": "^15.1.0"
   }

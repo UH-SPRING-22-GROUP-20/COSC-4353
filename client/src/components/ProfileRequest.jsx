@@ -1,11 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react'
-import { useParams, useHistory } from 'react-router-dom'
-import axios from "axios"
-import Nav from './nav'
+import React, {useContext, useEffect, useState} from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import axios from "axios";
+import Nav from './nav';
 
 
-const ProfileRequest = ({setAuth}) => 
-{
+const ProfileRequest = ({setAuth}) => {
     const {userID} = useParams();
     let history = useHistory();
     const [username, setUsername] = useState("");
@@ -16,20 +15,18 @@ const ProfileRequest = ({setAuth}) =>
     const [state, setState] = useState("");
     const [zipcode, setZipcode] = useState("");
     
-    const checkAuth = async e => 
-    {
+    const checkAuth = async e => {
         var x = localStorage.token;
  
         if(!x)
          setAuth = false;
         else
-         setAuth = true;  
-    } 
-
+         setAuth = true; 
+         
+     } 
     async function getUsername(){
         try {
-            const response = await fetch("http://localhost:5050/dashboard/", 
-            {
+            const response = await fetch("http://localhost:5050/dashboard/", {
                 method: "GET",
                 headers: {token: localStorage.token}
             });
@@ -38,20 +35,16 @@ const ProfileRequest = ({setAuth}) =>
     
             setUsername(parseResponse);
             
-        } 
-        catch (error) 
-        {
+        } catch (error) {
             console.error(error.message)
+            
         }
     }
     
-    async function getInfo()
-    {
-        try 
-        {
+    async function getInfo(){
+        try {
             const body = {username}
-            const response = await fetch(`http://localhost:5050/clientInformation/api/profileget/${username}`, 
-            {
+            const response = await fetch(`http://localhost:5050/clientInformation/api/profileget/${username}`, {
                 method: "GET",
                 headers:{"Content-type" : "application/json"},
                 // body: JSON.stringify(body),
@@ -67,41 +60,62 @@ const ProfileRequest = ({setAuth}) =>
             setState(parseResponse.results[0].state);
             setZipcode(parseResponse.results[0].zipcode);
             
-        } 
-        catch (error) 
-        {
+        } catch (error) {
             console.error(error.message)
+            
         }
     }
     
-    useEffect(()=>
-    {
+    useEffect(()=>{
         getUsername()
         getInfo()
     })
+//     const handleSubmit = async (e) =>
+//   {
+
+//     e.preventDefault()
+//     try {
+//       const body = {username}
+//       const response = await fetch(`http://localhost:5050/clientInformation/api/profileget/${username}`, {
+//         method: "GET",
+//         headers:{"Content-type" : "application/json"},
+//         // body: JSON.stringify(body),
+//         dataType: 'jsonp'
+//     });
+
+//     const parseRes = await response.json();
+//     console.log(parseRes.results[0].username)
+//     // setName({parseRes.results.name})
+//     setName(parseRes.results[0].name)
+
+//     } catch (err) {
+//       console.error(err)
+//     }
+//   }
 
   const handleSubmit = async (e) =>
   {
+
     e.preventDefault()
     try {
       const body = {username}
-      const response = await fetch(`http://localhost:5050/clientInformation/api/profileget/${username}`, 
-      {
+      const response = await fetch(`http://localhost:5050/clientInformation/api/profileget/${username}`, {
         method: "GET",
         headers:{"Content-type" : "application/json"},
+        // body: JSON.stringify(body),
         dataType: 'jsonp'
     });
 
     const parseRes = await response.json();
     console.log(parseRes.results[0].username)
+    // setName({parseRes.results.name})
     setName(parseRes.results[0].name)
 
-    } 
-    catch (err) 
-    {
+    } catch (err) {
       console.error(err)
     }
   }
+
 
     return (
         <div>

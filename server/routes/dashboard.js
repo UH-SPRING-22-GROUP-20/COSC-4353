@@ -1,4 +1,4 @@
-const router = require("express").Router()
+const router = require("express").Router();
 const mysql = require("../db")
 
 const auth = require("../middleware/authorize")
@@ -11,5 +11,7 @@ router.get("/", auth , async (req,res) =>
         console.error(err.message);
     }
 })
+
+
 
 module.exports = router;

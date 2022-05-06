@@ -1,3 +1,4 @@
+
 .svg-container {
   position: absolute;
   top: 0;
@@ -6,9 +7,11 @@
   z-index: -1;
 }
 
+
+
 body {
-  background: white;
-  color: black;
+  background: #fff;
+  color: #333;
   font-family: 'Ubuntu', sans-serif;
   position: relative;
 }
@@ -25,13 +28,14 @@ header {
 }
 
 main {
+
   background: linear-gradient(to bottom, #ffffff 0%, #dddee1 100%);
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   padding: 10vh 0 80vh;
   position: center;
   text-align: center;
   overflow: hidden;
-  
+
   &::after {
     border-right: 2px dashed #eee;
     content: '';
@@ -55,61 +59,65 @@ small {
   opacity: .5;
   font-weight: 300;
 
-  a{
+  a {
     color: inherit;
   }
 }
 
-label{
-    display:inline-block;
-    width:120px;
-}
-input{
-    width:300px;
-    padding:10px;
-    background-color:rgb(255, 232, 190)
-}
+        label{
+            display:inline-block;
+            width:120px;
+        }
+        input{
+            width:300px;
+            padding:10px;
+            background-color:rgb(219,241,248)
+        }
 
-textarea{
-    width:300px;
-    padding:10px;
-}
-.button {
-  background-color: red; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  transition-duration: 0.4s;
-}
+        textarea{
+            width:300px;
+            padding:10px;
+        }
+        .button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          transition-duration: 0.4s;
+        }
 
 .button:hover {
-  background-color: orange;
+  background-color: #008CBA; /* Green */
   color: white;
 }
 input:hover {
-  background-color: orange;
+  background-color: rgb(100, 149, 237);
   color: rgb(255,248,220);
 }
 
 /*history*/
 h2{
+
 padding: 10px;
+
 font-family: sans-serif;
+
 font-size: 1.2em;
+
 margin: 25px 0;
 
 min-width: 400px;
-    background-color: orange;
-    color: black;
+    background-color: #009879;
+    color: #ffffff;
     text-align: left;
     margin: 25px 0px;
     padding: 20px 40px;
-}
 
+}
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0px;
@@ -117,19 +125,17 @@ min-width: 400px;
     font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
 
+}
 .styled-table thead tr {
-    background-color: orange;
-    color: black;
+    background-color: #009879;
+    color: #ffffff;
     text-align: left;
 }
-
 .styled-table th,
 .styled-table td {
     padding: 30px 40px;
 }
-
 .styled-table tbody tr {
     border-bottom: 1px solid #dddddd;
 }

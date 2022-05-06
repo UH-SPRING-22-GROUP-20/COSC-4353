@@ -1,10 +1,17 @@
 const router = require("express").Router();
 const mysql = require("../db");
 const cors = require("cors");
+//const { Router } = require("express");
 
 router.get("/", (req, res) => {
   res.send("Hello world!");
 });
+
+// app.use(cors());
+
+// app.use(express.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // submit fuel quote form
 router.post("/fuelquoteform", async (req, res) => {
@@ -18,7 +25,7 @@ router.post("/fuelquoteform", async (req, res) => {
     const suggest_quote = req.body.suggest_quote;
       try{
         const customer =  await mysql.query(
-          "INSERT INTO COSC4353.fuelquote (gallons_req, delivery_street, delivery_city, delivery_state, delivery_zipcode, delivery_date, suggest_quote) VALUES ( ?, ?, ?, ?, ?, ?, ?);",
+          "INSERT INTO fuelquote (gallons_req, delivery_street, delivery_city, delivery_state, delivery_zipcode, delivery_date, suggest_quote) VALUES ( ?, ?, ?, ?, ?, ?, ?);",
           [gallons, street,city,state,zipcode,delivery_date, suggest_quote],
           (err, results) =>{
             if (err) {
@@ -33,13 +40,26 @@ router.post("/fuelquoteform", async (req, res) => {
   
             
           });
+          // const customer_last_inserted =  await db.query(
+          //   "select * from `fuel_quote` where fuelquote_id=LAST_INSERT_ID();",
+  
+          //   (err, results) =>{
+          //     if (err) throw err;
+          //     console.log(results);
+          //     res.status(200).json({
+          //       status: "success",
+          //       data: results,
+          //     });
+          //   }
+          //   );
+  
         } catch (err) {
           console.log(err);
           }
         });
   //get all quote history info
   router.get("/getquotehistory", (req, res) => {
-    const sql = "SELECT * FROM COSC4353.order_history;";
+    const sql = "SELECT * FROM order_history;";
     const query = mysql.query(sql, (err, results) => {
       if (err) throw err;
       console.log(results);
@@ -52,7 +72,7 @@ router.post("/fuelquoteform", async (req, res) => {
 
   //get pricing module info
   router.get("/api/v1/pricingmodule", (req, res) => {
-    const sql = "SELECT * FROM COSC4353.state_price;";
+    const sql = "SELECT * FROM state_price;";
     const query = mysql.query(sql, (err, results) => {
       if (err) throw err;
       console.log(results);
@@ -64,15 +84,12 @@ router.post("/fuelquoteform", async (req, res) => {
   });
 
 ///GET HISTORY
-  router.get("/getorder/:username", async (req, res) =>
-  {
+  router.get("/getorder/:username", async (req, res) =>{
+    // const username = req.body.username;
     const username = req.params.username
-    try 
-    {
-      const user = await mysql.query("SELECT * FROM COSC4353.fuelquote where username = ?; ",[username], (err, results)=>
-      {
-        if(err)
-        {
+    try {
+      const user = await mysql.query("SELECT * FROM fuelquote where username = ?; ",[username], (err, results)=>{
+        if(err){
           console.error(err.message)
           return res.status(400).json("please complete")
         };
@@ -81,12 +98,13 @@ router.post("/fuelquoteform", async (req, res) => {
           results: results
       })
       });
-    } catch (err) 
-    {
+    } catch (err) {
       console.log(err);
       res.status(500).send("Server Error");
   
       }
   })
+
+
 
   module.exports=router;

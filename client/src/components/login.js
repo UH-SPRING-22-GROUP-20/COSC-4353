@@ -1,23 +1,24 @@
-import React, {useState} from 'react'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import '../App.css'
-import register from './register'
-import {Link } from 'react-router-dom'
+import React, {useState} from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import '../App.css';
+import register from './register';
+import {Link } from 'react-router-dom';
 
 
 
-function Login({setAuth}) 
-{
+function Login({setAuth}) {
   const [inputs, setInputs] =  useState({username: "" , password: ""});
+
   const {username, password} = inputs;
+
   const onChange = e => 
     setInputs({...inputs, [e.target.name]: e.target.value});
   
   const onSubmitForm = async (e) =>
   {
+
     e.preventDefault()
-    try 
-    {
+    try {
       const body = {username,password}
       const response = await fetch("http://localhost:5050/auth/login", {
         method: "POST",
@@ -34,14 +35,13 @@ function Login({setAuth})
       setAuth(true);
      
     }
-    else
-    {
+    else{
       alert(parseRes)
     }
+    
 
-    } 
-    catch (err) 
-    {
+
+    } catch (err) {
       console.error(err)
     }
   }
@@ -49,7 +49,7 @@ function Login({setAuth})
     <div>
       <form onSubmit = {onSubmitForm}>
           <h2>Log In</h2>
-          
+
           <div className="login">
               <label>Username:</label>
               <input

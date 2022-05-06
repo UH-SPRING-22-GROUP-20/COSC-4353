@@ -2,22 +2,18 @@ import '../App.css';
 import React, {useState,useEffect} from 'react';
 import Nav from '../components/nav';
 
-const Dashboard = ({setAuth}) => 
-{
+const Dashboard = ({setAuth}) => {
    
-    const logout = async e => 
-    {
+    const logout = async e => {
         setAuth(false);
         localStorage.clear();
+        
     } 
     const [name, setName] =  useState("")
 
-    async function getName()
-    {
-        try 
-        {
-            const response = await fetch("http://localhost:5050/dashboard/", 
-            {
+    async function getName(){
+        try {
+            const response = await fetch("http://localhost:5050/dashboard/", {
                 method: "GET",
                 headers: {token: localStorage.token}
             });
@@ -26,14 +22,12 @@ const Dashboard = ({setAuth}) =>
 
             setName(parseResponse);
             
-        } 
-        catch (error) 
-        {
+        } catch (error) {
             console.error(error.message)
+            
         }
     }
-    useEffect(()=>
-    {
+    useEffect(()=>{
         getName()
     })
     return (
